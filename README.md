@@ -51,6 +51,7 @@ VehicleComparator
    - Log in to GABS
    - Compare vehicle images from both systems
    - Print results
+   - Export Result
  
 Features Implemented
   - Login automation
@@ -84,6 +85,9 @@ How to Run
 
   Optional: Add more vehicles
    - Edit the stockNumbers array in cri.java to test multiple vehicles
+
+Note
+Manual reacpatch verification needed for Gabs Login
 
    
    
