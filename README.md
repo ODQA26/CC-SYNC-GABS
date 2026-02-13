@@ -79,7 +79,7 @@ How to Run
                  - Right-click cri.java → Run As → Java Application
                         - Chrome will open automatically
                         - Console output will display: Vehicle details from CC & GABS
-                                                       Field-by-field comparison results (✅ / ❌)
+                                                       Field-by-field comparison results 
                                                        Broken image reports
                                                        Image count mismatches
 
@@ -87,7 +87,7 @@ How to Run
    - Edit the stockNumbers array in cri.java to test multiple vehicles
 
 Note
-Manual reacpatch verification needed for Gabs Login
+Manual recaptcha verification needed for Gabs Login
 
    
    
@@ -96,7 +96,7 @@ Manual reacpatch verification needed for Gabs Login
 ## Author
 Nathasha Welitharage  
 QA  Engineer  
-Email: nathasha.outdesk@gmail.com  
+Email: nathasha.w@outdeskbpo.com
      
 
  
