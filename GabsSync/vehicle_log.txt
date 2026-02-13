@@ -1,0 +1,98 @@
+Feb 13, 2026 3:01:35 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+Stock Number: J26020419
+NZE151N
+NZE151-4010993
+-
+Re
+2013
+1,500
+96,299
+Automatic
+Silver
+Petrol
+Make: TOYOTA
+Model: Corolla Rumion
+Grade: 1.5G
+Steering: RHD
+Wheel Drive: 2WD
+doors: 5
+seats: 5
+L=421, W=176, H=163
+Volume: 12.08 M3
+Total CC CRF images: 0
+Stock Number: J26020667
+YF15
+YF15-308672
+-
+Re
+2014
+1,500
+126,960
+Automatic
+Black
+Petrol
+Make: NISSAN
+Model: JUKE
+Grade: 
+Steering: RHD
+Wheel Drive: 2WD
+doors: 5
+seats: 5
+L=413, W=176, H=156
+Volume: 11.34 M3
+Total CC CRF images: 9
+⚠️ Stock not found in system: J260208421
+= CC Vehicles =
+VehicleData {stock='J26020419', make='TOYOTA', model='Corolla Rumion', chassis='NZE151-4010993', regMonth='-
+Re', lastYear='2013', enginC='1,500', colur='Silver', mileage='96,299', fuel='Petrol', transmission='Automatic', grade='1.5G', driveCode='RHD', wheelDrive='2WD', doors=5, seats=5, length=421, width=176, height=163, volumeM3=12.08}
+VehicleData {stock='J26020667', make='NISSAN', model='JUKE', chassis='YF15-308672', regMonth='-
+Re', lastYear='2014', enginC='1,500', colur='Black', mileage='126,960', fuel='Petrol', transmission='Automatic', grade='', driveCode='RHD', wheelDrive='2WD', doors=5, seats=5, length=413, width=176, height=156, volumeM3=11.34}
+
+🔍 Comparing stock: J26020419
+✅ Make matched
+✅ Model matched
+✅ Grade matched
+✅ Drive matched
+✅ Wheel Drive matched
+✅ Fuel matched
+✅ color matched
+✅ Mileage matched
+✅ Transmission matched
+✅ Register Year matched
+✅ Manufacture Year matched
+✅ Engine CC matched
+✅ Chassis matched
+✅ Seat matched
+✅ Volume matched
+Total GABS images: 8
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804964.jpg?100
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804597.jpg?168
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804124.jpg?369
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804358.jpg?338
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804932.jpg?393
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804461.jpg?585
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634804208.jpg?816
+🚨 Broken image detected: https://vimg.gabs.biz/NHA514/l/1770634805644.jpg?488
+🚨Total broken images: 8
+⚠️ Image count mismatch! CC: 0, GABS: 8
+
+🔍 Comparing stock: J26020667
+✅ Make matched
+✅ Model matched
+❌ Grade mismatch | CC:  | GABS: --
+✅ Drive matched
+✅ Wheel Drive matched
+✅ Fuel matched
+✅ color matched
+✅ Mileage matched
+✅ Transmission matched
+✅ Register Year matched
+✅ Manufacture Year matched
+✅ Engine CC matched
+✅ Chassis matched
+✅ Seat matched
+✅ Volume matched
+Total GABS images: 9
+🌟 No broken images found.
+✔️ CRF image count matches GABS image count

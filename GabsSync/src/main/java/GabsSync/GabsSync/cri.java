@@ -3,6 +3,12 @@ package GabsSync.GabsSync;
 import java.time.Duration;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +18,41 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class cri {
+	static class TeeOutputStream extends OutputStream {
+        private final OutputStream out1;
+        private final OutputStream out2;
+
+        public TeeOutputStream(OutputStream out1, OutputStream out2) {
+            this.out1 = out1;
+            this.out2 = out2;
+        }
+
+        @Override
+        public void write(int b) throws IOException {
+            out1.write(b);
+            out2.write(b);
+        }
+
+        @Override
+        public void flush() throws IOException {
+            out1.flush();
+            out2.flush();
+        }
+
+        @Override
+        public void close() throws IOException {
+            out1.close();
+            out2.close();
+        }
+    }
 
 	public static void main(String[] args) throws Exception {
+		PrintStream fileOut = new PrintStream(new FileOutputStream("vehicle_log.txt"));
+        PrintStream tee = new PrintStream(new TeeOutputStream(System.out, fileOut));
+        System.setOut(tee);
+        System.setErr(tee);
+
+      
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -27,8 +66,6 @@ public class cri {
 			String[] stockNumbers = {
 				    "J26020419",
 				    "J26020667",
-				    "J26020652",
-				    "J26020842",
 				    "J260208421"
 				   
 				};
@@ -52,10 +89,10 @@ public class cri {
 			        gabsVehicle = gabsPage.getVehicleByStock(ccVehicle.getStock());
 			    } catch (Exception e) {
 			        System.out.println("⚠️ Stock not found in GABS: " + ccVehicle.getStock());
-			        continue; // skip comparison and move to next stock
+			        continue; 
 			    }
 
-			    // Only compare if stock was found
+			   
 			    if (gabsVehicle != null) {
 			        VehicleComparator.compare(ccVehicle, gabsVehicle);
 			    }
