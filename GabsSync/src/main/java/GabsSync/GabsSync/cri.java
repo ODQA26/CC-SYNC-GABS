@@ -61,7 +61,7 @@ public class cri {
 		try {
 
 			LoginCC loginCC = new LoginCC(driver);
-			loginCC.login("nathasha", "Carchief101");
+			loginCC.login("", "");
 
 			String[] stockNumbers = {
 				    "J26020419",
@@ -79,7 +79,7 @@ public class cri {
 			}
 
 			loginPageGABS loginGABS = new loginPageGABS(driver);
-			loginGABS.login("caricom_as@yahoo.com", "CariComAuto714");
+			loginGABS.login("","");
 
 			GABSVehiclePage gabsPage = new GABSVehiclePage(driver);
 
