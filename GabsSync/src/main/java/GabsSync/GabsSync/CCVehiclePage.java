@@ -31,12 +31,18 @@ public class CCVehiclePage {
 			WebElement searchBox = wait
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"stock_number\"]")));
 			searchBox.clear();
-			searchBox.sendKeys(stocks);
+			searchBox.sendKeys(stock);
 			driver.findElement(By.xpath("//*[@id=\"searchForm\"]/div[1]/div[5]/input[1]")).click();
+			
+			try {
 
 			WebElement stockElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 					"//*[@id=\"bodyIds\"]/div[1]/div/table[2]/tbody/tr/td/form/div[3]/table[2]/tbody/tr/td/table/tbody/tr/td[2]/table[2]/tbody/tr[1]/td/table/tbody/tr[1]/td[1]/table/tbody/tr/td[3]/a")));
 			System.out.println("Stock Number: " + stockElement.getText());
+			} catch (Exception e) {
+		        System.out.println("⚠️ Stock not found in system: " + stock);
+		        continue; // skip to the next stock number
+		    }
 
 			String modelCode = driver.findElement(By.xpath(
 					"//*[@id=\"bodyIds\"]/div[1]/div/table[2]/tbody/tr/td/form/div[3]/table[2]/tbody/tr/td/table/tbody/tr/td[2]/table[2]/tbody/tr[1]/td/table/tbody/tr[6]/td[2]/table/tbody/tr/td[3]"))
@@ -135,7 +141,7 @@ public class CCVehiclePage {
 			System.out.println("Total CC CRF images: " + crfImages.size());
 
 			vehicles.add(new VehicleData(stock, makeText, modelText, chassis, regMonth, lastYear, enginC, colur,
-					mileage, fuel, transmission, grade, driveCode, wheelDrive, 4, seats, length, width, height,
+					mileage, fuel, transmission, grade, driveCode, wheelDrive, doors, seats, length, width, height,
 					volumeM3, crfImages));
 
 		}

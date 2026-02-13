@@ -24,12 +24,19 @@ public class cri {
 			LoginCC loginCC = new LoginCC(driver);
 			loginCC.login("nathasha", "Carchief101");
 
-			String[] stockNumbers = { "J26011569" };
+			String[] stockNumbers = {
+				    "J26020419",
+				    "J26020667",
+				    "J26020652",
+				    "J26020842",
+				    "J260208421"
+				   
+				};
 
 			CCVehiclePage ccVehiclePage = new CCVehiclePage(driver);
 			List<VehicleData> ccVehicles = ccVehiclePage.getVehicleByStock(stockNumbers);
 
-			System.out.println("=== CC Vehicles ===");
+			System.out.println("= CC Vehicles =");
 			for (VehicleData v : ccVehicles) {
 				System.out.println(v);
 			}
@@ -40,13 +47,24 @@ public class cri {
 			GABSVehiclePage gabsPage = new GABSVehiclePage(driver);
 
 			for (VehicleData ccVehicle : ccVehicles) {
+				VehicleData gabsVehicle = null;
+				try {
+			        gabsVehicle = gabsPage.getVehicleByStock(ccVehicle.getStock());
+			    } catch (Exception e) {
+			        System.out.println("⚠️ Stock not found in GABS: " + ccVehicle.getStock());
+			        continue; // skip comparison and move to next stock
+			    }
 
-				VehicleData gabsVehicle = gabsPage.getVehicleByStock(ccVehicle.getStock());
+			    // Only compare if stock was found
+			    if (gabsVehicle != null) {
+			        VehicleComparator.compare(ccVehicle, gabsVehicle);
+			    }
+			
 
-				System.out.println("\n=== GABS Vehicle ===");
-				System.out.println(gabsVehicle);
-
-				VehicleComparator.compare(ccVehicle, gabsVehicle);
+//				System.out.println("\n= GABS Vehicle =");
+//				System.out.println(gabsVehicle);
+//
+//				VehicleComparator.compare(ccVehicle, gabsVehicle);
 
 				WebElement imageIcon = wait.until(ExpectedConditions.presenceOfElementLocated(
 						By.xpath("//div[@id='master-list']/div[2]/div[2]/div[3]/div/div/a[4]/i")));
@@ -61,12 +79,31 @@ public class cri {
 				List<WebElement> gabsImages = driver
 						.findElements(By.cssSelector("#draggable-cards img.doc_name_img_vehi"));
 				System.out.println("Total GABS images: " + gabsImages.size());
+				
+				// Check for broken images
+				int brokenCount = 0;
+				for (WebElement img : gabsImages) {
+				    Boolean imageLoaded = (Boolean) ((org.openqa.selenium.JavascriptExecutor) driver)
+				            .executeScript(
+				                    "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
+				                    img);
+				    if (!imageLoaded) {
+				        brokenCount++;
+				        System.out.println("🚨 Broken image detected: " + img.getAttribute("src"));
+				    }
+				}
+				if (brokenCount == 0) {
+				    System.out.println("🌟 No broken images found.");
+				} else {
+				    System.out.println("🚨Total broken images: " + brokenCount);
+				}
+
 
 				// Compare count
 				if (gabsImages.size() == ccVehicle.getCrfImages().size()) {
-					System.out.println("✅ CRF image count matches GABS image count");
+					System.out.println("✔️ CRF image count matches GABS image count");
 				} else {
-					System.out.println("❌ Image count mismatch! CC: " + ccVehicle.getCrfImages().size() + ", GABS: "
+					System.out.println("⚠️ Image count mismatch! CC: " + ccVehicle.getCrfImages().size() + ", GABS: "
 							+ gabsImages.size());
 				}
 			}

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class VehicleData {
 
-	// STRING FIELDS
+	// string fields
 	private String stock;
 	private String make;
 	private String model;
@@ -19,7 +19,7 @@ public class VehicleData {
 	private String grade;
 	private String driveCode;
 	private String wheelDrive;
-	// NUMERIC FIELDS
+	// numeric fields
 	private int doors;
 	private int seats;
 	private int length;
@@ -28,7 +28,7 @@ public class VehicleData {
 	private double volumeM3;
 	private List<String> crfImages;
 
-	// CONSTRUCTOR
+	// constructors
 	public VehicleData(String stock, String make, String model, String chassis, String regMonth, String lastYear,
 			String enginC, String colur, String mileage, String fuel, String transmission, String grade,
 			String driveCode, String wheelDrive, int doors, int seats, int length, int width, int height,
@@ -58,7 +58,7 @@ public class VehicleData {
 		this.crfImages = crfImages;
 	}
 
-	// GETTERS
+	// getters
 	public String getStock() {
 		return stock;
 	}
