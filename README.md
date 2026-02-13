@@ -5,7 +5,6 @@ The automation verifies that the vehicle information and CRF images count in CC 
 
 Purpose
 The main goal of this project is to:
-
 Fetch vehicle data from CC
 Fetch the same vehicle data from GABS
 Compare:
