@@ -1,6 +1,6 @@
 CC – GABS Vehicle Sync Automation
 
-This project is a Selenium-based automation framework built in Java to validate vehicle data synchronization between CC (CarChief System) and GABS (Global Auction Backend System).
+This project is a Selenium-based automation framework built in Java to validate vehicle data synchronization between CarChief System and GABS.
 The automation verifies that the vehicle information and CRF images count in CC correctly match the data available in GABS.
 
 Purpose
