@@ -42,9 +42,6 @@ loginPageGABS
 GABSVehiclePage
  - Fetches vehicle details from GABS for comparison.  
 
-GABSVehiclePage
- - Fetches vehicle details and CRF images from CC.
-
 VehicleComparator
  - Compare vehicle details
 
@@ -71,11 +68,13 @@ How to Run
      - Google Chrome browser
 
  Install & Run
+ 
     1.  Install Google Chrome
     2.  Import the project into Eclipse
     3.  Ensure Maven dependencies are configured
     4.  Update login credentials
     5.  Run the project
+    
                  - Right-click cri.java → Run As → Java Application
                         - Chrome will open automatically
                         - Console output will display: Vehicle details from CC & GABS
